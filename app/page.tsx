@@ -52,6 +52,58 @@ const metrics = [
   ["25%", "faster access approvals"],
 ];
 
+const workSamples = [
+  {
+    organization: "Radisson Blu",
+    title: "Culture, recognition & the choreography of belonging",
+    summary:
+      "Designed and delivered employee moments that made culture visible—from the field to the stage to the welfare forum.",
+    evidence: [
+      "Inter-departmental football league coordinated from kickoff to trophy",
+      "Associate of the Year programme supported across recognition and live-show execution",
+      "Monthly female associate welfare forum and calendar-led cultural activations",
+    ],
+  },
+  {
+    organization: "Smart Group",
+    title: "Stakeholder alignment, made visible on the ground",
+    summary:
+      "Turned logistics, hosting, and team programming into confident experiences for visitors and employees alike.",
+    evidence: [
+      "Industrial site visit hosted with on-site logistics and walkthrough coordination",
+      "Team culture strengthened through a football league and annual employee picnic",
+      "Cross-functional delivery kept stakeholders informed and the experience on schedule",
+    ],
+  },
+  {
+    organization: "Unilever",
+    title: "Quality culture translated to the production floor",
+    summary:
+      "Connected shop-floor quality practice with leadership visibility during World Quality Week.",
+    evidence: [
+      "Director-led floor visit supported across the manufacturing environment",
+      "Quality messaging connected to the people and routines behind daily operations",
+      "Employer-brand experience documented through a practical HR lens",
+    ],
+  },
+];
+
+const chitraPieces = [
+  ["/chitra/kundan-sun.jpeg", "Kundan and pearl earrings", "Kundan study"],
+  ["/chitra/gold-bangles.jpeg", "Delicate gold bangles", "Golden orbit"],
+  ["/chitra/silver-jhumka.jpeg", "Silver crystal jhumka earrings", "Silver cascade"],
+  ["/chitra/crystal-gold-jhumka.jpeg", "Gold crystal jhumka earrings", "Gilded bell"],
+  ["/chitra/pearl-floral-set.jpeg", "Gold and pearl floral jewelry set", "Pearled flora"],
+  ["/chitra/emerald-drops.jpeg", "Emerald drop earrings", "Emerald moons"],
+  ["/chitra/ganesh-enamel.jpeg", "Colorful Ganesh enamel earrings", "Enamel talisman"],
+  ["/chitra/crystal-leaf-ring.jpeg", "Crystal leaf ring", "Leaf and light"],
+  ["/chitra/twin-square-ring.jpeg", "Twin square crystal ring", "Twin geometry"],
+  ["/chitra/antique-gold-jhumka.jpeg", "Antique gold jhumka earrings", "Antique bell"],
+];
+
+const assetPath = (path: string) =>
+  `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+
 export default function Home() {
   return (
     <main id="top">
@@ -63,6 +115,7 @@ export default function Home() {
         <nav aria-label="Primary navigation">
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
+          <a href="#work-samples">Samples</a>
           <a href="#expertise">Expertise</a>
         </nav>
         <a className="headerLink" href="#contact">Let&apos;s talk <span>↗</span></a>
@@ -167,6 +220,48 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="evidence" id="work-samples" aria-labelledby="samples-title">
+        <div className="evidenceHeader">
+          <div className="sectionIndex"><span>04</span><p>Interleaf · Evidentia</p></div>
+          <div>
+            <p className="sectionLabel">Selected work samples</p>
+            <h2 id="samples-title">The proof lives<br />in the practice.</h2>
+            <p className="evidenceLead">
+              Across three organizations, I helped turn culture into something people
+              could see, join, and remember.
+            </p>
+          </div>
+        </div>
+
+        <div className="evidenceCases">
+          {workSamples.map((sample, index) => (
+            <article key={sample.organization}>
+              <div className="evidenceCaseTop">
+                <span>Plate 0{index + 1}</span>
+                <p>{sample.organization}</p>
+              </div>
+              <div className="evidenceSigil" aria-hidden="true"><i /><b /></div>
+              <h3>{sample.title}</h3>
+              <p className="evidenceSummary">{sample.summary}</p>
+              <ul>
+                {sample.evidence.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="evidenceFooter">
+          <p><strong>11</strong> documented plates <i /> <strong>3</strong> organizations <i /> one thread: culture made tangible</p>
+          <a
+            className="primaryAction"
+            href={assetPath("/work-samples/Maoshiat-Nasim-Work-Samples.pptx")}
+            download
+          >
+            Download the full folio <span>↓</span>
+          </a>
+        </div>
+      </section>
+
       <section className="expertise" id="expertise" aria-labelledby="expertise-title">
         <aside className="folioAside">
           <span>Folio 03</span>
@@ -191,18 +286,41 @@ export default function Home() {
       </section>
 
       <section className="venture" aria-labelledby="venture-title">
-        <div className="ventureSeal" aria-hidden="true"><span>C</span></div>
-        <div>
-          <p className="sectionLabel">An entrepreneurial experiment</p>
-          <h2 id="venture-title">Chitra</h2>
-          <p className="scriptNote">from ornament to enterprise</p>
+        <div className="venturePrelude">
+          <div className="ventureSeal" aria-hidden="true"><span>C</span></div>
+          <div>
+            <p className="sectionLabel">An entrepreneurial experiment</p>
+            <h2 id="venture-title">Chitra</h2>
+            <p className="scriptNote">from ornament to enterprise</p>
+          </div>
+          <div className="ventureCopy">
+            <p>
+              Built and scaled an e-commerce jewelry business, managing 100+ orders and
+              five vendor relationships while overseeing inventory, logistics, and customer service.
+            </p>
+            <div className="ventureMetric"><strong>20%</strong><span>sales growth in six months through digital campaigns</span></div>
+          </div>
         </div>
-        <div className="ventureCopy">
-          <p>
-            Built and scaled an e-commerce jewelry business, managing 100+ orders and
-            five vendor relationships while overseeing inventory, logistics, and customer service.
-          </p>
-          <div className="ventureMetric"><strong>20%</strong><span>sales growth in six months through digital campaigns</span></div>
+
+        <div className="chitraCabinet">
+          <div className="cabinetHeading">
+            <p className="sectionLabel">The merchant&apos;s cabinet · ten studies</p>
+            <h3>A small catalogue.<br />A complete business education.</h3>
+            <p>Product selection, visual merchandising, vendor coordination, inventory, fulfilment, and customer trust—held in every frame.</p>
+          </div>
+          <div className="jewelMosaic">
+            {chitraPieces.map(([src, alt, caption], index) => (
+              <figure key={src}>
+                <Image
+                  src={assetPath(src)}
+                  alt={alt}
+                  fill
+                  sizes="(max-width: 760px) 50vw, 28vw"
+                />
+                <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{caption}</figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
