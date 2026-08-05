@@ -4,7 +4,7 @@ const roles = [
   {
     company: "Radisson Blu",
     role: "People & Culture Coordinator",
-    dates: "Jan 2026 — Present",
+    dates: "Dec 2025 — Present",
     intro: "Supporting the complete employee experience within a fast-paced hospitality environment.",
     bullets: [
       "Support employee relations casework across disciplinary actions, grievances, leave, performance reviews, and exit interviews.",
@@ -55,35 +55,69 @@ const metrics = [
 const workSamples = [
   {
     organization: "Radisson Blu",
-    title: "Culture, recognition & the choreography of belonging",
-    summary:
-      "Designed and delivered employee moments that made culture visible—from the field to the stage to the welfare forum.",
-    evidence: [
-      "Inter-departmental football league coordinated from kickoff to trophy",
-      "Associate of the Year programme supported across recognition and live-show execution",
-      "Monthly female associate welfare forum and calendar-led cultural activations",
+    thesis: "Culture became a programme people could join, shape, and remember.",
+    studies: [
+      {
+        type: "Sports tournament · 2026",
+        title: "Football Premier League",
+        summary:
+          "Coordinated the associates’ inter-departmental tournament from kickoff to trophy, using friendly competition to build camaraderie across teams.",
+        contribution: "Tournament coordination · cross-department participation · end-to-end delivery",
+      },
+      {
+        type: "Recognition programme",
+        title: "Associate of the Year",
+        summary:
+          "Supported the annual recognition night across stage performances, nominee announcements, and the live run-of-show behind the booth.",
+        contribution: "Opening performance · nominee recognition · live show control",
+      },
+      {
+        type: "Employee welfare · recurring forum",
+        title: "Female Associate Welfare Meeting",
+        summary:
+          "Helped sustain a structured monthly forum where female associates could raise concerns directly and help shape workplace welfare initiatives.",
+        contribution: "Listening channel · recurring facilitation · welfare follow-through",
+      },
+      {
+        type: "Culture & CSR calendar",
+        title: "Moments that made the year visible",
+        summary:
+          "Activated sustainability and national-heritage moments across the property, connecting the employee experience to a wider social calendar.",
+        contribution: "Earth Hour · Victory Day · Pohela Boishakh",
+      },
     ],
   },
   {
     organization: "Smart Group",
-    title: "Stakeholder alignment, made visible on the ground",
-    summary:
-      "Turned logistics, hosting, and team programming into confident experiences for visitors and employees alike.",
-    evidence: [
-      "Industrial site visit hosted with on-site logistics and walkthrough coordination",
-      "Team culture strengthened through a football league and annual employee picnic",
-      "Cross-functional delivery kept stakeholders informed and the experience on schedule",
+    thesis: "Good coordination made complex days feel effortless.",
+    studies: [
+      {
+        type: "Stakeholder experience",
+        title: "Industrial Site Visit",
+        summary:
+          "Hosted stakeholders on-site and coordinated logistics and walkthroughs so the visit stayed informative, confident, and on schedule.",
+        contribution: "Visitor hosting · on-site logistics · walkthrough coordination",
+      },
+      {
+        type: "Year-round team culture · 2025",
+        title: "Football League & Annual Picnic",
+        summary:
+          "Supported two very different shared experiences—competitive sport and a company-wide day out—to strengthen connection beyond daily operations.",
+        contribution: "Tournament delivery · employee picnic · cross-functional coordination",
+      },
     ],
   },
   {
     organization: "Unilever",
-    title: "Quality culture translated to the production floor",
-    summary:
-      "Connected shop-floor quality practice with leadership visibility during World Quality Week.",
-    evidence: [
-      "Director-led floor visit supported across the manufacturing environment",
-      "Quality messaging connected to the people and routines behind daily operations",
-      "Employer-brand experience documented through a practical HR lens",
+    thesis: "Leadership visibility brought quality culture onto the floor.",
+    studies: [
+      {
+        type: "World Quality Week",
+        title: "Director-led Production Floor Visit",
+        summary:
+          "Walked the production floor alongside directors, connecting shop-floor quality practice with visible leadership attention.",
+        contribution: "Floor engagement · leadership visibility · quality communication",
+      },
     ],
   },
 ];
@@ -227,37 +261,57 @@ export default function Home() {
             <p className="sectionLabel">Selected work samples</p>
             <h2 id="samples-title">The proof lives<br />in the practice.</h2>
             <p className="evidenceLead">
-              Across three organizations, I helped turn culture into something people
-              could see, join, and remember.
+              Seven assignments across three organizations—presented here as an
+              on-page record of what I helped coordinate, activate, and deliver.
             </p>
           </div>
         </div>
 
-        <div className="evidenceCases">
-          {workSamples.map((sample, index) => (
-            <article key={sample.organization}>
-              <div className="evidenceCaseTop">
-                <span>Plate 0{index + 1}</span>
-                <p>{sample.organization}</p>
+        <div className="archiveScope" aria-label="Scope of work samples">
+          <span>Employer branding</span>
+          <span>Employee welfare</span>
+          <span>Corporate events</span>
+          <span>Cross-functional delivery</span>
+          <span>Sports tournaments</span>
+        </div>
+
+        <div className="workArchive">
+          {workSamples.map((sample, chapterIndex) => (
+            <article className="workChapter" key={sample.organization}>
+              <header>
+                <div className="chapterNumber">0{chapterIndex + 1}</div>
+                <div>
+                  <p>Chapter {String(chapterIndex + 1).padStart(2, "0")}</p>
+                  <h3>{sample.organization}</h3>
+                </div>
+                <em>{sample.thesis}</em>
+              </header>
+              <div className="chapterStudies">
+                {sample.studies.map((study, studyIndex) => (
+                  <section className="workStudy" key={study.title}>
+                    <div className="studyFigure" aria-hidden="true">
+                      <span>{String(studyIndex + 1).padStart(2, "0")}</span>
+                      <div className="studyGlyph"><i /><b /></div>
+                    </div>
+                    <div className="studyCopy">
+                      <p>{study.type}</p>
+                      <h4>{study.title}</h4>
+                      <div className="studyNarrative">
+                        <p>{study.summary}</p>
+                        <small>{study.contribution}</small>
+                      </div>
+                    </div>
+                  </section>
+                ))}
               </div>
-              <div className="evidenceSigil" aria-hidden="true"><i /><b /></div>
-              <h3>{sample.title}</h3>
-              <p className="evidenceSummary">{sample.summary}</p>
-              <ul>
-                {sample.evidence.map((item) => <li key={item}>{item}</li>)}
-              </ul>
             </article>
           ))}
         </div>
 
         <div className="evidenceFooter">
-          <p><strong>11</strong> documented plates <i /> <strong>3</strong> organizations <i /> one thread: culture made tangible</p>
-          <a
-            className="primaryAction"
-            href={assetPath("/work-samples/Maoshiat-Nasim-Work-Samples.pptx")}
-            download
-          >
-            Download the full folio <span>↓</span>
+          <p><strong>7</strong> assignments <i /> <strong>3</strong> organizations <i /> the complete story is now on this page</p>
+          <a className="folioDownload" href={assetPath("/work-samples/Maoshiat-Nasim-Work-Samples.pptx")} download>
+            Original presentation archive <span>↓</span>
           </a>
         </div>
       </section>
@@ -285,7 +339,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="venture" aria-labelledby="venture-title">
+      <section className="venture" id="chitra" aria-labelledby="venture-title">
         <div className="venturePrelude">
           <div className="ventureSeal" aria-hidden="true"><span>C</span></div>
           <div>
