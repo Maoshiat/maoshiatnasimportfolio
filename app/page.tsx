@@ -84,7 +84,7 @@ export default function Home() {
 
         <figure className="heroStudy botanicalStudy">
           <Image
-            src="/og.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/og.png`}
             alt="A Renaissance-inspired botanical and mechanical study representing growth and organizational systems"
             fill
             priority
