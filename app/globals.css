@@ -538,11 +538,45 @@ footer { background: var(--ink); color: var(--paper); overflow: hidden; padding:
 footer h2 { font-size: clamp(62px, 8.3vw, 132px); max-width: 1100px; position: relative; z-index: 1; }
 footer > .sectionLabel, .footerLead { position: relative; z-index: 1; }
 .footerLead { color: rgba(242, 240, 233, 0.58); font-family: Georgia, "Times New Roman", serif; font-size: 16px; line-height: 1.65; margin: 30px 0 0; max-width: 560px; }
+.footerContacts {
+  border-bottom: 1px solid rgba(242, 240, 233, 0.18);
+  border-top: 1px solid rgba(242, 240, 233, 0.18);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 52px;
+  max-width: 1050px;
+  position: relative;
+  z-index: 2;
+}
+.footerContacts a {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr auto;
+  padding: 25px 28px 27px 0;
+  transition: background 180ms ease, padding 180ms ease;
+}
+.footerContacts a + a { border-left: 1px solid rgba(242, 240, 233, 0.18); padding-left: 28px; }
+.footerContacts a:hover { background: rgba(242, 240, 233, 0.055); padding-left: 18px; }
+.footerContacts a + a:hover { padding-left: 46px; }
+.footerContacts span {
+  color: #d48a78;
+  font-size: 8px;
+  font-weight: 700;
+  grid-column: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.footerContacts strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(17px, 1.7vw, 24px);
+  font-weight: 400;
+  grid-column: 1;
+  overflow-wrap: anywhere;
+}
+.footerContacts i { align-self: center; color: #d48a78; font-style: normal; grid-column: 2; grid-row: 1 / 3; }
 .inverse { margin-top: 38px; }
 .footerAction { background: var(--paper); color: var(--ink); margin-top: 38px; position: relative; z-index: 2; }
-.footerBottom { border-top: 1px solid rgba(242, 240, 233, 0.18); color: rgba(242, 240, 233, 0.48); display: grid; font-size: 8px; font-weight: 700; gap: 24px; grid-template-columns: 1fr 1fr 1fr; letter-spacing: 0.1em; margin-top: 110px; padding-top: 18px; text-transform: uppercase; }
-.footerBottom > span:nth-child(2) { text-align: center; }
-.footerBottom > span:last-child { text-align: right; }
+.footerBottom { border-top: 1px solid rgba(242, 240, 233, 0.18); color: rgba(242, 240, 233, 0.48); font-size: 8px; font-weight: 700; letter-spacing: 0.1em; margin-top: 110px; padding-top: 18px; text-transform: uppercase; }
 .artCredits a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .footerCompass { border: 1px solid rgba(242, 240, 233, 0.13); border-radius: 50%; height: min(42vw, 620px); position: absolute; right: -6vw; top: 4%; width: min(42vw, 620px); }
 .footerCompass::before, .footerCompass::after { border: 1px solid rgba(242, 240, 233, 0.08); border-radius: 50%; content: ""; inset: 15%; position: absolute; }
@@ -608,8 +642,9 @@ footer > .sectionLabel, .footerLead { position: relative; z-index: 1; }
   .manuscriptImage { min-height: 520px; }
   .manuscriptImage::after { background: linear-gradient(180deg, transparent 65%, var(--paper-deep)); }
   .manuscriptQuote { padding: 35px 24px 80px; }
-  .footerBottom { grid-template-columns: 1fr; }
-  .footerBottom > span:nth-child(2), .footerBottom > span:last-child { text-align: left; }
+  .footerContacts { grid-template-columns: 1fr; }
+  .footerContacts a + a { border-left: 0; border-top: 1px solid rgba(242, 240, 233, 0.18); padding-left: 0; }
+  .footerContacts a + a:hover { padding-left: 18px; }
   .archiveScope { display: flex; overflow-x: auto; scrollbar-width: none; }
   .archiveScope::-webkit-scrollbar { display: none; }
   .archiveScope span, .archiveScope span:nth-child(n) { border-left: 0; border-top: 0; flex: 0 0 172px; justify-content: flex-start; text-align: left; }

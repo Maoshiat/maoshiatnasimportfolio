@@ -383,11 +383,21 @@ export default function Home() {
         <p className="sectionLabel">The next blank page</p>
         <h2>Let us build a better<br />employee experience.</h2>
         <p className="footerLead">Open to meaningful conversations about people, culture, and the systems that help both thrive.</p>
+        <div className="footerContacts" aria-label="Contact Maoshiat Nasim">
+          <a href="mailto:maoshiat.nasim@gmail.com">
+            <span>Email</span>
+            <strong>maoshiat.nasim@gmail.com</strong>
+            <i aria-hidden="true">↗</i>
+          </a>
+          <a href="https://www.linkedin.com/in/maoshiat-nasim" target="_blank" rel="noreferrer">
+            <span>LinkedIn</span>
+            <strong>linkedin.com/in/maoshiat-nasim</strong>
+            <i aria-hidden="true">↗</i>
+          </a>
+        </div>
         <a className="primaryAction footerAction" href="#top">Return to the beginning <span>↑</span></a>
         <div className="footerBottom">
           <span>Maoshiat Nasim · HR &amp; People Operations</span>
-          <span>Chattogram, Bangladesh</span>
-          <span>Codex complete · MMXXVI</span>
         </div>
       </footer>
     </main>
